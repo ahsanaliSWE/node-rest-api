@@ -20,7 +20,7 @@ const serviceAccountKey = {
 
 
 const PORT = process.env.PORT || 3000;
-//const serviceAccount = require(serviceAccountKey);
+const serviceAccount = require(`/Users/Ahsan Ali/Downloads/muet-api-firebase-adminsdk-jsu7e-c229b27a4e.json`);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccountKey),
@@ -29,6 +29,7 @@ admin.initializeApp({
 app.use(cors());
 app.use(express.json()); // Enable JSON body parsing
 app.use(express.urlencoded({ extended: true })); // Enable URL-encoded body parsing
+app.use(cors());
 
 const db = admin.firestore(); // Reference to Firestore database
 
@@ -46,6 +47,7 @@ app.post('/users', async (req, res) => {
 
 // GET all users
 app.get('/users', async (req, res) => {
+  console.log("/user request");
   try {
     const querySnapshot = await db.collection('users').get();
     const users = querySnapshot.docs.map(doc => doc.data());
@@ -125,33 +127,7 @@ app.put('/users/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to update user.' });
   }
 });
-
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
 /* 
-const productData = [];
-
-app.post('/api/add_product', (req, res) => {
-     console.log("Result",req.body);
-     const pdata = { 
-      "id": productData.length+1,
-      "pname": req.body.pname,
-      "price": req.body.price,
-      "desc": req.body.pdesc
-     };
-})
-
-productData.push(pdata);
-console.log("Final",pdata);
-
-res.status(200).send({
-    "status_code": 200,
-    "status_message": "Product added successfully",
-    "prodcuct": pdata
-}) */
-/* ,
 app.get('/users/search', async (req, res) => {
     const { name } = req.query; // Extract search term from query parameters
   
@@ -179,6 +155,10 @@ app.get('/users/search', async (req, res) => {
   });
 
  */
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
 
 
 /* //middleware
