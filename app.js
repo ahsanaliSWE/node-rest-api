@@ -45,6 +45,7 @@ app.post('/users', async (req, res) => {
 
 // GET all users
 app.get('/users', async (req, res) => {
+  console.log("users endpoint");
   try {
     const querySnapshot = await db.collection('users').get();
     const users = querySnapshot.docs.map(doc => doc.data());
@@ -124,6 +125,11 @@ app.put('/users/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to update user.' });
   }
 });
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
 /* 
 app.get('/users/search', async (req, res) => {
     const { name } = req.query; // Extract search term from query parameters
@@ -152,10 +158,7 @@ app.get('/users/search', async (req, res) => {
   });
 
  */
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-  });
+
 
 
 /* //middleware
