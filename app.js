@@ -20,7 +20,7 @@ const serviceAccountKey = {
 
 
 const PORT = process.env.PORT || 3000;
-const serviceAccount = require(`/Users/Ahsan Ali/Downloads/muet-api-firebase-adminsdk-jsu7e-c229b27a4e.json`);
+//const serviceAccount = require(`/Users/Ahsan Ali/Downloads/muet-api-firebase-adminsdk-jsu7e-c229b27a4e.json`);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccountKey),
