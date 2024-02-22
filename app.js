@@ -28,6 +28,7 @@ admin.initializeApp({
 
 app.use(express.json()); // Enable JSON body parsing
 app.use(express.urlencoded({ extended: true })); // Enable URL-encoded body parsing
+app.use(cors());
 
 const db = admin.firestore(); // Reference to Firestore database
 
@@ -45,7 +46,7 @@ app.post('/users', async (req, res) => {
 
 // GET all users
 app.get('/users', async (req, res) => {
-  console.log("users endpoint");
+  console.log("/user request");
   try {
     const querySnapshot = await db.collection('users').get();
     const users = querySnapshot.docs.map(doc => doc.data());
