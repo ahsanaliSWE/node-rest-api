@@ -31,6 +31,12 @@ app.use(express.urlencoded({ extended: true })); // Enable URL-encoded body pars
 
 const db = admin.firestore(); // Reference to Firestore database
 
+// Welcome message and list of endpoints
+app.get('/', (req, res) => {
+  const message = 'Welcome to the MUET APP API!\n\nAvailable endpoints:\n- POST /history (Create a new history)\n- GET /history (Retrieve all history) \n- POST /achievements (Create a new achievements)\n- GET /achievements (Retrieve all achievements) \n- POST /directory (Create a new directory)\n- GET /users (Retrieve all directory)';
+  res.send(message);
+});
+
 // Create users endpoint
 app.post('/history', async (req, res) => {
   try {
@@ -125,6 +131,45 @@ app.put('/history/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to update user.' });
   }
 });
+
+// GET all achiecements
+app.get('/achievements', async (req, res) => {
+  console.log("/achievements get request");
+  try {
+    const querySnapshot = await db.collection('achievements').get();
+    const achievements = {};
+    querySnapshot.forEach(doc => {
+      const achievementsId = doc.id;
+      const achievementsData = doc.data();
+      achievements[achievementsId] = achievementsData;
+    });
+    res.json(achievements);
+  } catch (error) {
+    console.error('Error retrieving achievements:', error);
+    res.status(500).json({ error: 'Failed to retrieve achievements.' });
+  }
+});
+
+// GET all directory
+app.get('/directory', async (req, res) => {
+  console.log("/directory get request");
+  try {
+    const querySnapshot = await db.collection('directory').get();
+    const directory = {};
+    querySnapshot.forEach(doc => {
+      const directoryId = doc.id;
+      const directoryData = doc.data();
+      directory[directoryId] = directoryData;
+    });
+    res.json(directory);
+  } catch (error) {
+    console.error('Error retrieving directory:', error);
+    res.status(500).json({ error: 'Failed to retrieve directory.' });
+  }
+});
+
+
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
