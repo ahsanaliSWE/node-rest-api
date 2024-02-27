@@ -33,7 +33,7 @@ const db = admin.firestore(); // Reference to Firestore database
 
 // Welcome message and list of endpoints
 app.get('/', (req, res) => {
-  const message = 'Welcome to the MUET APP API!\n\nAvailable endpoints:\n- POST /history (Create a new history)\n- GET /history (Retrieve all history) \n- POST /achievements (Create a new achievements)\n- GET /achievements (Retrieve all achievements) \n- POST /directory (Create a new directory)\n- GET /users (Retrieve all directory)';
+  const message = 'Welcome to the MUET APP API!\n\nAvailable endpoints: <br> - POST /history (Create a new history) <br> - GET /history (Retrieve all history)<br><br>- POST /achievements (Create a new achievements)<br>- GET /achievements (Retrieve all achievements)<br><br>- POST /directory (Create a new directory)<br>- GET /directory (Retrieve all directory)';
   res.send(message);
 });
 
