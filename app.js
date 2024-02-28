@@ -185,8 +185,8 @@ app.get('/announcements/general', async (req, res) => {
 });
 
 // GET all sports
-app.get('/announcements/general', async (req, res) => {
-  console.log("/general get request");
+app.get('/announcements/sports', async (req, res) => {
+  console.log("/sports get request");
   try {
     const querySnapshot = await db.collection('sports').get();
     const sports = querySnapshot.docs.map(doc => doc.data());
