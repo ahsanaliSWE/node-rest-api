@@ -158,6 +158,57 @@ app.get('/directory', async (req, res) => {
   }
 });
 
+// GET all exams
+app.get('/announcements/exams', async (req, res) => {
+  console.log("/exam get request");
+  try {
+    const querySnapshot = await db.collection('exams').get();
+    const exams = querySnapshot.docs.map(doc => doc.data());
+    res.json(exams);
+  } catch (error) {
+    console.error('Error retrieving directory:', error);
+    res.status(500).json({ error: 'Failed to retrieve directory.' });
+  }
+});
+
+// GET all general
+app.get('/announcements/general', async (req, res) => {
+  console.log("/general get request");
+  try {
+    const querySnapshot = await db.collection('general').get();
+    const general = querySnapshot.docs.map(doc => doc.data());
+    res.json(general);
+  } catch (error) {
+    console.error('Error retrieving directory:', error);
+    res.status(500).json({ error: 'Failed to retrieve directory.' });
+  }
+});
+
+// GET all sports
+app.get('/announcements/general', async (req, res) => {
+  console.log("/general get request");
+  try {
+    const querySnapshot = await db.collection('sports').get();
+    const sports = querySnapshot.docs.map(doc => doc.data());
+    res.json(sports);
+  } catch (error) {
+    console.error('Error retrieving directory:', error);
+    res.status(500).json({ error: 'Failed to retrieve directory.' });
+  }
+});
+
+// GET all classes
+app.get('/announcements/classes', async (req, res) => {
+  console.log("/classes get request");
+  try {
+    const querySnapshot = await db.collection('classes').get();
+    const classes = querySnapshot.docs.map(doc => doc.data());
+    res.json(classes);
+  } catch (error) {
+    console.error('Error retrieving directory:', error);
+    res.status(500).json({ error: 'Failed to retrieve directory.' });
+  }
+});
 
 
 // Start the server
