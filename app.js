@@ -135,14 +135,9 @@ app.put('/history/:id', async (req, res) => {
 // GET all achiecements
 app.get('/achievements', async (req, res) => {
   console.log("/achievements get request");
-  try {
+ try {
     const querySnapshot = await db.collection('achievements').get();
-    const achievements = {};
-    querySnapshot.forEach(doc => {
-      const achievementsId = doc.id;
-      const achievementsData = doc.data();
-      achievements[achievementsId] = achievementsData;
-    });
+    const achievements = querySnapshot.docs.map(doc => doc.data());
     res.json(achievements);
   } catch (error) {
     console.error('Error retrieving achievements:', error);
@@ -155,12 +150,7 @@ app.get('/directory', async (req, res) => {
   console.log("/directory get request");
   try {
     const querySnapshot = await db.collection('directory').get();
-    const directory = {};
-    querySnapshot.forEach(doc => {
-      const directoryId = doc.id;
-      const directoryData = doc.data();
-      directory[directoryId] = directoryData;
-    });
+    const directory = querySnapshot.docs.map(doc => doc.data());
     res.json(directory);
   } catch (error) {
     console.error('Error retrieving directory:', error);
