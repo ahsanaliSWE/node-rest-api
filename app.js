@@ -205,8 +205,21 @@ app.get('/announcements/classes', async (req, res) => {
     const classes = querySnapshot.docs.map(doc => doc.data());
     res.json(classes);
   } catch (error) {
-    console.error('Error retrieving directory:', error);
-    res.status(500).json({ error: 'Failed to retrieve directory.' });
+    console.error('Error retrieving classes:', error);
+    res.status(500).json({ error: 'Failed to retrieve classes.' });
+  }
+});
+
+// GET all news
+app.get('/news', async (req, res) => {
+  console.log("/news get request");
+  try {
+    const querySnapshot = await db.collection('news').get();
+    const news = querySnapshot.docs.map(doc => doc.data());
+    res.json(news);
+  } catch (error) {
+    console.error('Error retrieving news:', error);
+    res.status(500).json({ error: 'Failed to retrieve news.' });
   }
 });
 
