@@ -33,7 +33,7 @@ const db = admin.firestore(); // Reference to Firestore database
 
 // Welcome message and list of endpoints
 app.get('/', (req, res) => {
-  const message = 'Welcome to the MUET APP API!\n\nAvailable endpoints: <br> - POST /history (Create a new history) <br> - GET /history (Retrieve all history)<br><br>- POST /achievements (Create a new achievements)<br>- GET /achievements (Retrieve all achievements)<br><br>- POST /directory (Create a new directory)<br>- GET /directory (Retrieve all directory)';
+  const message = 'Welcome to the MUET APP API!\n\nAvailable endpoints: <br> - POST /history (Create a new history) <br> - GET /history (Retrieve all history)<br><br>- POST /achievements (Create a new achievements)<br><br>- GET /achievements (Retrieve all achievements)<br><br>- GET /directory (Retrieve all directory)<br><br>- Get /announcements/exams (Retrieve all exams)<br><br>- Get /announcements/general (Retrieve all general)<br><br>- Get /announcements/sports (Retrieve all sports)<br><br>- Get /announcements/classes (Retrieve all classes)<br><br>- Get /news (Retrieve all news)';
   res.send(message);
 });
 
@@ -228,6 +228,3 @@ app.get('/news', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
   });
-
-
-
