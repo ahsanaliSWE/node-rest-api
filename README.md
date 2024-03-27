@@ -25,14 +25,11 @@ GET /announcements/classes: Retrieve all class announcements.
 GET /news: Retrieve all news.
 
 ## Setup
-
-1. Clone this repository to your local machine.
-2. Install dependencies using `npm install`.
-3. Set up a Firestore database in your Firebase project.
-4. Obtain a service account key file from Firebase and save it in a secure location.
-5. Create a `.env` file in the root directory and add the following environment variables:
-   ```plaintext
-   PORT=3000
-   FIREBASE_SERVICE_ACCOUNT_KEY_PATH=/path/to/serviceAccountKey.json
-
-  
+1. Clone the repository
+2. Install dependencies
+3. Set up Firestore database
+4. Obtain service account key
+5. Create .env file
+6. Update .env file with service account key path
+7. Update Firestore database configuration
+8. Start the server
