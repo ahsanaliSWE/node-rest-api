@@ -33,3 +33,8 @@ GET /news: Retrieve all news.
 6. Update .env file with service account key path
 7. Update Firestore database configuration
 8. Start the server
+
+# Note! 
+The database is created on Ahsan Ali's firebase account and will be available for a limited time.<br> 
+For cloud firestore database access email at ahsanalime3@gmail.com or haseeyt8@gmail.com
+
