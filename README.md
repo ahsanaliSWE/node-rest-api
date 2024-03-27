@@ -5,11 +5,11 @@ This is an Express.js server setup to provide API endpoints for managing user da
 # Endpoints
 
 ## History
-POST /history: Create a new user history.
-GET /history: Retrieve all user histories.
-GET /history/:id: Retrieve a specific user history by ID.
-PUT /history/:id: Update a specific user history by ID.
-DELETE /history/:id: Delete a specific user history by ID.
+POST /history: Create a new user history.<br>
+GET /history: Retrieve all user histories.<br>
+GET /history/:id: Retrieve a specific user history by ID.<br>
+PUT /history/:id: Update a specific user history by ID.<br>
+DELETE /history/:id: Delete a specific user history by ID.<br>
 GET /history/search: Search for users by name.
 
 ## Achievements
@@ -17,10 +17,10 @@ GET /achievements: Retrieve all achievements.
 ## Directory
 GET /directory: Retrieve all directory entries.
 ## Announcements
-GET /announcements/exams: Retrieve all exam announcements.
-GET /announcements/general: Retrieve all general announcements.
-GET /announcements/sports: Retrieve all sports announcements.
-GET /announcements/classes: Retrieve all class announcements.
+GET /announcements/exams: Retrieve all exam announcements.<br>
+GET /announcements/general: Retrieve all general announcements.<br>
+GET /announcements/sports: Retrieve all sports announcements.<br>
+GET /announcements/classes: Retrieve all class announcements.<br>
 ## News
 GET /news: Retrieve all news.
 
